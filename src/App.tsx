@@ -1,18 +1,17 @@
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import Home from './pages/home';
+import Inscricoes from './pages/inscricoes';
+import NotFound from './pages/notFound';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <h1>Vite + React</h1>
-      <button onClick={ () => setCount((prevCount) => prevCount + 1) }>
-        count is
-        {` ${count}`}
-      </button>
-    </>
+    <Routes>
+      <Route path="/" element={ <Home /> } />
+      <Route path="/inscricoes" element={ <Inscricoes /> } />
+      <Route path="*" element={ <NotFound /> } />
+    </Routes>
   );
 }
 
