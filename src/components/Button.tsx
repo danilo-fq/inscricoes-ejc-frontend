@@ -1,6 +1,8 @@
+import { ReactElement } from 'react';
+
 type ButtonProps = {
   type?: 'button' | 'submit' | 'reset';
-  name: string;
+  name: string | ReactElement;
   className?: string;
   handleClick: () => void;
 };
