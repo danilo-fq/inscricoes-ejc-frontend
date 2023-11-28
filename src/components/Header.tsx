@@ -9,10 +9,18 @@ export default function Header() {
   return (
     <header className="my-5 flex justify-around items-center w-full">
       <Link to="/">
-        <img className="w-16 h-16 relative right-4" src="/logo-ejc-sjt.png" alt="" />
+        <img
+          className="w-16 h-16 relative
+            right-[85px]  max-sm:right-7"
+          src="/logo-ejc-sjt.png"
+          alt=""
+        />
       </Link>
 
-      <nav className="flex gap-7 justify-center items-center w-auto max-sm:hidden">
+      <nav
+        className="flex gap-7 justify-center items-center
+          w-auto relative left-32 max-sm:hidden"
+      >
         <Link to="/inscricoes" className="text-lg font-medium">
           Inscrições
         </Link>
