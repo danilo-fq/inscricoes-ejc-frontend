@@ -7,11 +7,11 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <header className="my-5 flex justify-around items-center w-full">
+    <header className="my-6 flex justify-around items-center w-full bg-white h-14">
       <Link to="/">
         <img
-          className="w-16 h-16 relative
-            right-[85px]  max-sm:right-7"
+          className="w-16 h-16 absolute
+             left-16 top-4 max-sm:right-7"
           src="/logo-ejc-sjt.png"
           alt=""
         />
@@ -19,7 +19,7 @@ export default function Header() {
 
       <nav
         className="flex gap-7 justify-center items-center
-          w-auto relative left-32 max-sm:hidden"
+          w-auto absolute right-16 max-sm:hidden"
       >
         <Link to="/inscricoes" className="text-lg font-medium">
           Inscrições
