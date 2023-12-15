@@ -10,7 +10,7 @@ export default function SuccessInscription() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center mt-36">
+    <div className="flex flex-col justify-center items-center mt-36 max-sm:text-center">
       <p className="text-4xl font-medium text-black">
         Página não encontrada!
         {' '}

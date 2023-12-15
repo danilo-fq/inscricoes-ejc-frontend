@@ -17,7 +17,7 @@ export default function Header() {
 
       <nav
         className="flex gap-7 justify-center items-center
-          w-auto absolute right-16 max-sm:hidden"
+          w-auto absolute right-16"
       >
         <Link to="/inscricoes-encontreiro" className="text-lg font-medium">
           Inscrições
@@ -30,10 +30,10 @@ export default function Header() {
           />
         */}
       </nav>
-      <nav className="flex flex-col lg:hidden relative left-4">
+      {/* <nav className="flex flex-col lg:hidden relative left-4">
         <Button
           handleClick={ () => setIsNavOpen((prevState) => !prevState) }
-          className={ `w-10 h-10 rounded-lg 
+          className={ `w-10 h-10 rounded-lg
             bg-red-500 space-y-1 flex flex-col justify-center items-center` }
           name={
             <>
@@ -42,8 +42,8 @@ export default function Header() {
               <span className="block w-5 h-0.5 bg-white text-center mx-0.5" />
             </>
           }
-        />
       </nav>
+        /> */}
       { isNavOpen && (
         <ul
           className="bg-white w-full
