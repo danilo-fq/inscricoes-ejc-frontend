@@ -1,35 +1,34 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link /* useNavigate */ } from 'react-router-dom';
 import { useState } from 'react';
 import Button from './Button';
 
 export default function Header() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <header className="my-6 flex justify-around items-center w-full bg-white h-14">
-      <Link to="/">
-        <img
-          className="w-16 h-16 absolute
+      <img
+        className="w-16 h-16 absolute
              left-16 top-4 max-sm:right-7"
-          src="/logo-ejc-sjt.png"
-          alt=""
-        />
-      </Link>
+        src="/logo-ejc-sjt.png"
+        alt=""
+      />
 
       <nav
         className="flex gap-7 justify-center items-center
           w-auto absolute right-16 max-sm:hidden"
       >
-        <Link to="/inscricoes" className="text-lg font-medium">
+        <Link to="/inscricoes-encontreiro" className="text-lg font-medium">
           Inscrições
         </Link>
-        <Button
+        {/* <Button
           name="ENTRAR"
           handleClick={ () => navigate('/login') }
           className={ `w-36 h-12 bg-red-500 rounded-lg
            text-white font-sans font-semibold text-lg` }
-        />
+          />
+        */}
       </nav>
       <nav className="flex flex-col lg:hidden relative left-4">
         <Button

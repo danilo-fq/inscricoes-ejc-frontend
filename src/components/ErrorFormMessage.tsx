@@ -12,7 +12,7 @@ export default function ErrorFormMessage({ error = undefined }: ErrorProps) {
   return (
     <span
       className="text-red-400 text-sm ml-1 font-normal
-      max-w-[459px] max-sm:max-w-[260px] h-10"
+      w-[210px] max-sm:max-w-[210px] h-10"
     >
       {`${error.message}`}
     </span>

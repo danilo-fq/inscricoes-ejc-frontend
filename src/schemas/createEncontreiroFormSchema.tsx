@@ -93,13 +93,7 @@ const createEncontreiroFormSchema = z.object({
   ejcYear: z.coerce.number()
     .min(1, { message: 'Informe o ano do seu primeiro encontro' })
     .min(1930, { message: 'Por favor insira um ano válido' })
-    .refine((ejcYear) => {
-      return new Date().getFullYear() - ejcYear >= 1;
-    }, {
-      message: `Você precisa esperar 1 ano
-      após seu primeiro encontro para servir conosco`,
-      path: ['ejcYear'],
-    }),
+    .max(2023, { message: 'Por favor insira um ano válido' }),
   musicalInstrument: z.array(z.object(selectObject), {
     required_error: SELECT_ONE_OPTION,
   }),
@@ -131,6 +125,15 @@ const createEncontreiroFormSchema = z.object({
 }).refine(({ password, confirmPassword }) => password === confirmPassword, {
   message: 'Senhas não coincidem',
   path: ['confirmPassword'],
-});
+})
+  .refine(({ ejcYear }) => {
+    console.log(new Date().getFullYear() - ejcYear);
+
+    return new Date().getFullYear() - ejcYear >= 1;
+  }, {
+    message: `Você precisa esperar 1 ano
+  após seu primeiro encontro para servir conosco`,
+    path: ['ejcYear'],
+  });
 
 export default createEncontreiroFormSchema;

@@ -25,6 +25,7 @@ export default function GenericInput({
   parentField = '',
 }: InputProps) {
   const { register, formState: { errors } } = useFormContext();
+  console.log('quem é inputName', inputName);
 
   const error = errors[parentField || inputName];
 
@@ -36,6 +37,7 @@ export default function GenericInput({
         return error[Number(childFieldIndex)][childFieldName];
       }
     }
+    console.log('chega aqui no fim do getError? e quem é error', error);
 
     return error;
   };
