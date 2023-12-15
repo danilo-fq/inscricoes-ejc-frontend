@@ -1,0 +1,21 @@
+[
+    {"value": "Nenhuma", "label": "Nenhum(a)"}, 
+    {"value": "Apresentadores", "label": "Apresentadores"}, 
+    {"value": "Bandinha", "label": "Bandinha"}, 
+    {"value": "Boa Vontade", "label": "Boa Vontade"}, 
+    {"value": "Círculos", "label": "Círculos"}, 
+    {"value": "Coordenação Geral", "label": "Coordenação Geral"}, 
+    {"value": "Correios", "label": "Correios"}, 
+    {"value": "Cozinha", "label": "Cozinha"}, 
+    {"value": "Externa", "label": "Externa"}, 
+    {"value": "Imprensa / Secretaria", "label": "Imprensa / Secretaria"}, 
+    {"value": "Lanchinho", "label": "Lanchinho"}, 
+    {"value": "Liturgia", "label": "Liturgia"}, 
+    {"value": "Minibox / Megabox", "label": "Minibox / Megabox"},
+    {"value": "Ordem", "label": "Ordem"},
+    {"value": "Recepção", "label": "Recepção"}, 
+    {"value": "Sementinha", "label": "Sementinha"}, 
+    {"value": "Som e Iluminação", "label": "Som e Iluminação"}, 
+    {"value": "Trânsito", "label": "Trânsito"}, 
+    {"value": "Vigília", "label": "Vigília"}
+]

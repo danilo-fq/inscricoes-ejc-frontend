@@ -1,0 +1,14 @@
+[
+    {"value": "Nenhuma", "label": "Não tenho habilidades musicais"}, 
+    {"value": "Cantar", "label": "Cantar"}, 
+    {"value": "Violão", "label": "Violão"}, 
+    {"value": "Bateria", "label": "Bateria"}, 
+    {"value": "Saxofone", "label": "Saxofone"}, 
+    {"value": "Guitarra", "label": "Guitarra"}, 
+    {"value": "Percussão", "label": "Percussão"}, 
+    {"value": "Teclado", "label": "Teclado"}, 
+    {"value": "Piano", "label": "Piano"}, 
+    {"value": "Baixo", "label": "Baixo"}, 
+    {"value": "Flauta", "label": "Flauta"}, 
+    {"value": "Sanfona", "label": "Sanfona"}
+]
