@@ -1,5 +1,10 @@
+import Header from '../../components/Header';
+
 export default function Inscricoes() {
   return (
-    <h1>Inscrições</h1>
+    <>
+      <Header />
+      <h1>Inscrições</h1>
+    </>
   );
 }
