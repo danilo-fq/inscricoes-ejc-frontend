@@ -1,0 +1,472 @@
+[
+    { 
+      "label": "Paróquia Santuário São Judas Tadeu",
+      "value": "Paróquia Santuário São Judas Tadeu",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Imaculada Conceição",
+      "value": "Paróquia Imaculada Conceição",
+      "cidade": "Cuité De Mamanguape"
+    },
+    { 
+      "label": "Paróquia Jesus Ressuscitado",
+      "value": "Paróquia Jesus Ressuscitado",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Mãe Do Redentor",
+      "value": "Paróquia Mãe Do Redentor",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Maria Mãe De Deus",
+      "value": "Paróquia Maria Mãe De Deus",
+      "cidade": "Cabedelo"
+    },
+    { 
+      "label": "Paróquia Menino Jesus De Praga",
+      "value": "Paróquia Menino Jesus De Praga",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Aparecida - 13 de Maio",
+      "value": "Paróquia Nossa Senhora Aparecida - 13 de Maio",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Aparecida - Cristo",
+      "value": "Paróquia Nossa Senhora Aparecida - Cristo",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Auxiliadora",
+      "value": "Paróquia Nossa Senhora Auxiliadora",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Assunção",
+      "value": "Paróquia Nossa Senhora Da Assunção",
+      "cidade": "Alhandra"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Assunção",
+      "value": "Paróquia Nossa Senhora Da Assunção",
+      "cidade": "Cabedelo"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Assunção",
+      "value": "Paróquia Nossa Senhora Da Assunção",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição",
+      "value": "Paróquia Nossa Senhora Da Conceição",
+      "cidade": "Caaporã"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição",
+      "value": "Paróquia Nossa Senhora Da Conceição",
+      "cidade": "Conde"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição",
+      "value": "Paróquia Nossa Senhora Da Conceição",
+      "cidade": "Gurinhém"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição",
+      "value": "Paróquia Nossa Senhora Da Conceição",
+      "cidade": "Ingá"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição",
+      "value": "Paróquia Nossa Senhora Da Conceição",
+      "cidade": "Itabaiana"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição",
+      "value": "Paróquia Nossa Senhora Da Conceição",
+      "cidade": "Jacaraú"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição - Varadouro",
+      "value": "Paróquia Nossa Senhora Da Conceição - Varadouro",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição",
+      "value": "Paróquia Nossa Senhora Da Conceição",
+      "cidade": "São Mamede"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição",
+      "value": "Paróquia Nossa Senhora Da Conceição",
+      "cidade": "Sapé"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição Aparecida - Colinas do Sul",
+      "value": "Paróquia Nossa Senhora Da Conceição Aparecida - Colinas do Sul",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Conceição Aparecida - Valentina",
+      "value": "Paróquia Nossa Senhora Da Conceição Aparecida - Valentina",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Penha De França",
+      "value": "Paróquia Nossa Senhora Da Penha De França",
+      "cidade": "Taquara"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Da Soledade E São Sebastião",
+      "value": "Paróquia Nossa Senhora Da Soledade E São Sebastião",
+      "cidade": "Juripiranga"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Das Dores",
+      "value": "Paróquia Nossa Senhora Das Dores",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Das Dores",
+      "value": "Paróquia Nossa Senhora Das Dores",
+      "cidade": "Mogeiro"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Das Graças",
+      "value": "Paróquia Nossa Senhora Das Graças",
+      "cidade": "Santa Rita"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Das Neves",
+      "value": "Paróquia Nossa Senhora Das Neves",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora De Fátima",
+      "value": "Paróquia Nossa Senhora De Fátima",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora De Fátima",
+      "value": "Paróquia Nossa Senhora De Fátima",
+      "cidade": "Pedro Régis"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora De Fátima E São João Batista",
+      "value": "Paróquia Nossa Senhora De Fátima E São João Batista",
+      "cidade": "Riachão Do Poço"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora De Guadalupe",
+      "value": "Paróquia Nossa Senhora De Guadalupe",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora De Lourdes",
+      "value": "Paróquia Nossa Senhora De Lourdes",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora De Nazaré",
+      "value": "Paróquia Nossa Senhora De Nazaré",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Do Carmo",
+      "value": "Paróquia Nossa Senhora Do Carmo",
+      "cidade": "Mamanguape"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Do Livramento",
+      "value": "Paróquia Nossa Senhora Do Livramento",
+      "cidade": "Santa Rita"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Do Perpétuo Socorro",
+      "value": "Paróquia Nossa Senhora Do Perpétuo Socorro",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Do Pilar",
+      "value": "Paróquia Nossa Senhora Do Pilar",
+      "cidade": "Pilar"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Do Rosário",
+      "value": "Paróquia Nossa Senhora Do Rosário",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Nossa Senhora Rainha Dos Anjos",
+      "value": "Paróquia Nossa Senhora Rainha Dos Anjos",
+      "cidade": "São Miguel De Taipu"
+    },
+    { 
+      "label": "Paróquia Sagrada Família",
+      "value": "Paróquia Sagrada Família",
+      "cidade": "Bayeux"
+    },
+    { 
+      "label": "Paróquia Sagrado Coração De Jesus",
+      "value": "Paróquia Sagrado Coração De Jesus",
+      "cidade": "Bayeux"
+    },
+    { 
+      "label": "Paróquia Sagrado Coração De Jesus",
+      "value": "Paróquia Sagrado Coração De Jesus",
+      "cidade": "Cabedelo"
+    },
+    { 
+      "label": "Paróquia Sagrado Coração De Jesus",
+      "value": "Paróquia Sagrado Coração De Jesus",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Sagrado Coração De Jesus",
+      "value": "Paróquia Sagrado Coração De Jesus",
+      "cidade": "Santa Rita"
+    },
+    { 
+      "label": "Paróquia Sagrado Coração De Jesus Menino",
+      "value": "Paróquia Sagrado Coração De Jesus Menino",
+      "cidade": "Lucena"
+    },
+    { 
+      "label": "Paróquia Santa Clara",
+      "value": "Paróquia Santa Clara",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Santa Júlia",
+      "value": "Paróquia Santa Júlia",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Santa Rita De Cássia",
+      "value": "Paróquia Santa Rita De Cássia",
+      "cidade": "Rio Tinto"
+    },
+    { 
+      "label": "Paróquia Santa Teresinha",
+      "value": "Paróquia Santa Teresinha",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Santa Teresinha",
+      "value": "Paróquia Santa Teresinha",
+      "cidade": "Sapé"
+    },
+    { 
+      "label": "Paróquia Santíssima Trindade",
+      "value": "Paróquia Santíssima Trindade",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Santo Antônio",
+      "value": "Paróquia Santo Antônio",
+      "cidade": "Itatuba"
+    },
+    { 
+      "label": "Paróquia Santo Antônio",
+      "value": "Paróquia Santo Antônio",
+      "cidade": "Santa Rita"
+    },
+    { 
+      "label": "Paróquia Santo Antônio De Lisboa",
+      "value": "Paróquia Santo Antônio De Lisboa",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Santo Antônio De Pádua",
+      "value": "Paróquia Santo Antônio De Pádua",
+      "cidade": "Alhandra"
+    },
+    { 
+      "label": "Paróquia Santo Antônio De Pádua",
+      "value": "Paróquia Santo Antônio De Pádua",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Santo Antônio Do Menino Deus",
+      "value": "Paróquia Santo Antônio Do Menino Deus",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Santana",
+      "value": "Paróquia Santana",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia Santanna E São Joaquim",
+      "value": "Paróquia Santanna E São Joaquim",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São Félix Cantalice",
+      "value": "Paróquia São Félix Cantalice",
+      "cidade": "Salgado De São Félix"
+    },
+    { 
+      "label": "Paróquia São Francisco Das Chagas",
+      "value": "Paróquia São Francisco Das Chagas",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São Francisco De Assis",
+      "value": "Paróquia São Francisco De Assis",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São João Batista",
+      "value": "Paróquia São João Batista",
+      "cidade": "Bayeux"
+    },
+    { 
+      "label": "Paróquia São João Batista",
+      "value": "Paróquia São João Batista",
+      "cidade": "Conde"
+    },
+    { 
+      "label": "Paróquia São João Batista",
+      "value": "Paróquia São João Batista",
+      "cidade": "Itapororoca"
+    },
+    { 
+      "label": "Paróquia São João Batista",
+      "value": "Paróquia São João Batista",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São José",
+      "value": "Paróquia São José",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São José Operário",
+      "value": "Paróquia São José Operário",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São Miguel Arcanjo",
+      "value": "Paróquia São Miguel Arcanjo",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São Miguel Arcanjo E Nossa Senhora Das Dores",
+      "value": "Paróquia São Miguel Arcanjo E Nossa Senhora Das Dores",
+      "cidade": "Curral De Cima"
+    },
+    { 
+      "label": "Paróquia São Miguel",
+      "value": "Paróquia São Miguel",
+      "cidade": "Baía Da Traição"
+    },
+    { 
+      "label": "Paróquia São Pedro",
+      "value": "Paróquia São Pedro",
+      "cidade": "Serra Redonda"
+    },
+    { 
+      "label": "Paróquia São Pedro E São Paulo",
+      "value": "Paróquia São Pedro E São Paulo",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São Pedro E São Paulo",
+      "value": "Paróquia São Pedro E São Paulo",
+      "cidade": "Mamanguape"
+    },
+    { 
+      "label": "Paróquia São Pedro E São Paulo",
+      "value": "Paróquia São Pedro E São Paulo",
+      "cidade": "Santa Rita"
+    },
+    { 
+      "label": "Paróquia São Pedro Pescador",
+      "value": "Paróquia São Pedro Pescador",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São Rafael",
+      "value": "Paróquia São Rafael",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Paróquia São Sebastião",
+      "value": "Paróquia São Sebastião",
+      "cidade": "Bayeux"
+    },
+    { 
+      "label": "Paróquia Senhor Bom Jesus",
+      "value": "Paróquia Senhor Bom Jesus",
+      "cidade": "Mataraca"
+    },
+    { 
+      "label": "Paróquia Virgem Mãe Dos Pobres",
+      "value": "Paróquia Virgem Mãe Dos Pobres",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Pró-Paróquia Da Imaculada Conceição",
+      "value": "Pró-Paróquia Da Imaculada Conceição",
+      "cidade": "Cabedelo"
+    },
+    { 
+      "label": "Pró-Paróquia Nossa Senhora Do Brasil",
+      "value": "Pró-Paróquia Nossa Senhora Do Brasil",
+      "cidade": "Cabedelo"
+    },
+    { 
+      "label": "Pró-Paróquia Santa Edwiges",
+      "value": "Pró-Paróquia Santa Edwiges",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Reitoria De Nossa Senhora Mãe Dos Homens",
+      "value": "Reitoria De Nossa Senhora Mãe Dos Homens",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Santuário Arquidiocesano Dos Sagrados Corações De Jesus E Maria",
+      "value": "Santuário Arquidiocesano Dos Sagrados Corações De Jesus E Maria",
+      "cidade": "Conde"
+    },
+    { 
+      "label": "Santuário De Nossa Senhora Mãe Rainha",
+      "value": "Santuário De Nossa Senhora Mãe Rainha",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Santuário Nossa Senhora Da Conceição - Tambauzinho",
+      "value": "Santuário Nossa Senhora Da Conceição - Tambauzinho",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Santuário Nossa Senhora Da Conceição",
+      "value": "Santuário Nossa Senhora Da Conceição",
+      "cidade": "Pedras De Fogo"
+    },
+    { 
+      "label": "Santuário Nossa Senhora Da Guia",
+      "value": "Santuário Nossa Senhora Da Guia",
+      "cidade": "Lucena"
+    },
+    { 
+      "label": "Santuário Nossa Senhora Da Penha",
+      "value": "Santuário Nossa Senhora Da Penha",
+      "cidade": "João Pessoa"
+    },
+    { 
+      "label": "Santuário De Santa Rita",
+      "value": "Santuário De Santa Rita",
+      "cidade": "Santa Rita"
+    },
+    { 
+      "label": "Outra",
+      "value": "Outra",
+      "cidade": ""
+    }
+  ]

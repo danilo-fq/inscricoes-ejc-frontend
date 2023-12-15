@@ -1,35 +1,35 @@
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import loginUserFormSchema from '../../schemas/loginUserFormSchema';
+import loginEncontreiroFormSchema from '../../schemas/loginEncontreiroFormSchema';
 import Button from '../../components/Button';
+import GenericInput from '../../components/GenericInput';
 
-type LoginUserData = Zod.infer<typeof loginUserFormSchema>;
+type LoginUserData = Zod.infer<typeof loginEncontreiroFormSchema>;
 
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginUserData>(
-    {
-      resolver: zodResolver(loginUserFormSchema),
-    },
-  );
+  const methods = useForm<LoginUserData>({
+    resolver: zodResolver(loginEncontreiroFormSchema),
+    mode: 'onBlur',
+  });
 
-  const loginUser = (data: any) => {
+  const {
+    handleSubmit,
+  } = methods;
+
+  const loginEncontreiro = (data: object) => {
     console.log(data);
 
     // falta implementação do axios + rota de login
   };
 
   return (
-    <>
+    <FormProvider { ...methods }>
       <Header />
       <main
-        className="h-[83.8vh] bg-zinc-50 flex items-center justify-center flex-col gap-12"
+        className="h-screen bg-zinc-50 flex flex-col items-center justify-center gap-12"
       >
         <div className="flex flex-col justify-center items-center">
           <img
@@ -48,50 +48,26 @@ export default function Login() {
           </Link>
         </div>
         <form
-          onSubmit={ handleSubmit(loginUser) }
+          onSubmit={ handleSubmit(loginEncontreiro) }
           className="flex flex-col gap-6 items-start"
           method="post"
         >
-          <div className="flex flex-col gap-1">
-            <label
-              htmlFor="email"
-              className="text-base"
-            >
-              Email
-            </label>
-            <input
-              type="text"
-              id="email"
-              placeholder="Digite seu e-mail"
-              { ...register('email') }
-              className="h-12 w-96 px-3 shadow-sm rounded-lg
-               border-gray-300 border-2 focus:outline-gray-500"
+          <div className="flex flex-col gap-4 justify-center items-center">
+            <GenericInput
+              inputName="email"
+              labelDescription="Email:"
+              placeHolder="Digite seu e-mail"
+              styleInput="h-12 w-96 max-sm:w-72 px-3 shadow-sm rounded-lg border-gray-300
+              border-2 focus:outline-gray-500 placeholder:font-normal"
             />
-            {errors.email && (
-              <span
-                className="text-red-400 text-sm ml-3"
-              >
-                {errors.email.message}
-              </span>
-            )}
-          </div>
-          <div className="flex flex-col gap-1">
-            <label htmlFor="password">Senha</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Digite sua senha"
-              { ...register('password') }
-              className="h-12 w-96 px-3 shadow-sm rounded-lg
-               border-gray-300 border-2 focus:outline-gray-500"
+            <GenericInput
+              inputName="password"
+              inputType="password"
+              labelDescription="Senha:"
+              placeHolder="Digite sua senha:"
+              styleInput="h-12 w-96 max-sm:w-72 px-3 shadow-sm rounded-lg
+              border-gray-300 border-2 focus:outline-gray-500 placeholder:font-normal"
             />
-            {errors.password && (
-              <span
-                className="text-red-400 text-sm ml-3"
-              >
-                {errors.password.message}
-              </span>
-            )}
           </div>
 
           <Button
@@ -104,6 +80,6 @@ export default function Login() {
         {/* implementar aqui mensagem em caso de erro na tentativa de login */}
       </main>
       <Footer />
-    </>
+    </FormProvider>
   );
 }
