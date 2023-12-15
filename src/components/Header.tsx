@@ -1,10 +1,10 @@
 import { Link /* useNavigate */ } from 'react-router-dom';
-import { useState } from 'react';
-import Button from './Button';
+// import { useState } from 'react';
+// import Button from './Button';
 
 export default function Header() {
   // const navigate = useNavigate();
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  // const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <header className="my-6 flex justify-around items-center w-full bg-white h-14">
@@ -43,7 +43,7 @@ export default function Header() {
             </>
           }
       </nav>
-        /> */}
+        />
       { isNavOpen && (
         <ul
           className="bg-white w-full
@@ -56,7 +56,7 @@ export default function Header() {
             <Link to="/login">Entrar</Link>
           </li>
         </ul>
-      )}
+      )} */}
     </header>
   );
 }

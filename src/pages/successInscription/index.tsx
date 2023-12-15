@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 
 export default function SuccessInscription() {
   useEffect(() => {
-    /* const redirectTimer = setTimeout(() => {
+    const redirectTimer = setTimeout(() => {
       window.location.href = 'https://www.instagram.com/ejcsaojudastadeu/';
     }, 10000);
 
-    return () => clearTimeout(redirectTimer); */
+    return () => clearTimeout(redirectTimer);
   }, []);
 
   return (
