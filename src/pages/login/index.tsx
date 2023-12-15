@@ -31,6 +31,9 @@ export default function Login() {
       <main
         className="h-screen bg-zinc-50 flex flex-col items-center justify-center gap-12"
       >
+        <p className="text-lg font-medium text-green-600">
+          Cadastro Efetuado com sucesso!
+        </p>
         <div className="flex flex-col justify-center items-center">
           <img
             className="w-[80px] h-[80px] mx-auto mb-9"
@@ -52,12 +55,13 @@ export default function Login() {
           className="flex flex-col gap-6 items-start"
           method="post"
         >
-          <div className="flex flex-col gap-4 justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
             <GenericInput
               inputName="email"
               labelDescription="Email:"
               placeHolder="Digite seu e-mail"
-              styleInput="h-12 w-96 max-sm:w-72 px-3 shadow-sm rounded-lg border-gray-300
+              styleLabel="text-base font-medium flex flex-col mb-10"
+              styleInput="h-12 w-96  max-sm:w-72 px-3 shadow-sm rounded-lg border-gray-300
               border-2 focus:outline-gray-500 placeholder:font-normal"
             />
             <GenericInput
@@ -68,6 +72,13 @@ export default function Login() {
               styleInput="h-12 w-96 max-sm:w-72 px-3 shadow-sm rounded-lg
               border-gray-300 border-2 focus:outline-gray-500 placeholder:font-normal"
             />
+            <Link
+              to="/recuperar-senha"
+              className="text-[13px] text-gray-500 font-medium self-start mt-2 ml-2
+            hover:text-blue-500 hover:cursor-pointer"
+            >
+              Esqueceu a senha?
+            </Link>
           </div>
 
           <Button
@@ -77,7 +88,6 @@ export default function Login() {
            text-white font-sans font-semibold text-lg` }
           />
         </form>
-        {/* implementar aqui mensagem em caso de erro na tentativa de login */}
       </main>
       <Footer />
     </FormProvider>

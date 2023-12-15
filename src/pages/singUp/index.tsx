@@ -6,6 +6,7 @@ import {
 } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -25,6 +26,8 @@ export default function SignUp() {
   const [dynamicTeams, setDynamicTeams] = useState<OptionsType>(ejcEquipesMock);
   const [dynamicCoordTeams, setDynamicCoordTeams] = useState<OptionsType>(ejcEquipesMock);
 
+  const navigate = useNavigate();
+
   const methods = useForm<CreateEncontreiroData>({
     resolver: zodResolver(createEncontreiroFormSchema),
     mode: 'onBlur',
@@ -33,10 +36,15 @@ export default function SignUp() {
   const {
     handleSubmit,
     setValue,
+    formState: { errors },
   } = methods;
+
+  console.log(errors);
 
   const createEncontreiro = (data: CreateEncontreiroData) => {
     console.log('submit com sucesso', data);
+
+    navigate('/confirmacao-encontreiro');
   };
 
   const dynamicSelectChange = (
