@@ -15,7 +15,7 @@ function App() {
       <Route path="/" element={ <Navigate to="/inscricoes-encontreiro" replace /> } />
       <Route index path="/inscricoes-encontreiro" element={ <SignUp /> } />
       <Route path="/confirmacao-encontreiro" element={ <SuccessInscription /> } />
-      <Route path="/encontreiro" element={ <Encontreiro /> } />
+      {/* <Route path="/encontreiro" element={ <Encontreiro /> } /> */}
       { /* <Route path="/login" element={ <Login /> } /> */}
       { /* <Route path="/criar-conta" element={ <SignUp /> } /> */}
       <Route path="*" element={ <NotFound /> } />
