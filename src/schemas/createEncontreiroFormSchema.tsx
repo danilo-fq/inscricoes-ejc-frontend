@@ -105,13 +105,9 @@ const createEncontreiroFormSchema = z.object({
   }),
   ejcTeamParticipation: z.array(z.object(selectObject), {
     required_error: SELECT_ONE_OPTION,
-  }).transform((ejcTeams) => {
-    return ejcTeams.map((team) => team.value);
   }),
   ejcTeamCoordination: z.array(z.object(selectObject), {
     required_error: SELECT_ONE_OPTION,
-  }).transform((ejcTeamsCoordination) => {
-    return ejcTeamsCoordination.map((teamCoordination) => teamCoordination.value);
   }),
   otherEjcTeamParticipation: z.optional(
     z.string().min(1, { message: 'Campo Obrigatório' }),
