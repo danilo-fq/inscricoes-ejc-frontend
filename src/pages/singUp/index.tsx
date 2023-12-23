@@ -62,7 +62,7 @@ export default function SignUp() {
     const isEmpty = findValue.length === 0;
 
     if (!isEmpty) {
-      setValue(inputName, findValue.map((option) => option.value));
+      setValue(inputName, findValue);
     }
 
     switch (inputName) {
@@ -347,7 +347,7 @@ export default function SignUp() {
               } }
             />
             {checkInput[0]
-            && checkInput[0].some((team) => team === 'Outra') && (
+            && checkInput[0].some((team) => team.value === 'Outra') && (
               <GenericInput
                 inputName="otherEjcTeamParticipation"
                 labelDescription="Outras Equipes que já serviu:"
@@ -362,7 +362,7 @@ export default function SignUp() {
               />
             )}
             {checkInput[1]
-            && checkInput[1].some((team) => team === 'Outra') && (
+            && checkInput[1].some((team) => team.value === 'Outra') && (
               <GenericInput
                 inputName="otherEjcTeamCoordination"
                 labelDescription="Outras Equipes que já coordenou:"
