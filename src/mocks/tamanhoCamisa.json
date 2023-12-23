@@ -1,0 +1,15 @@
+[
+    {"value": "Babylook PP", "label": "Babylook PP"}, 
+    {"value": "Babylook P", "label": "Babylook P"}, 
+    {"value": "Babylook M", "label": "Babylook M"}, 
+    {"value": "Babylook G", "label": "Babylook G"}, 
+    {"value": "Babylook GG", "label": "Babylook GG"}, 
+    {"value": "Babylook XGG", "label": "Babylook XGG"}, 
+    {"value": "Normal PP", "label": "Normal PP"}, 
+    {"value": "Normal P", "label": "Normal P"}, 
+    {"value": "Normal M", "label": "Normal M"}, 
+    {"value": "Normal G", "label": "Normal G"}, 
+    {"value": "Normal GG", "label": "Normal GG"}, 
+    {"value": "Normal XGG", "label": "Normal XGG"}
+    
+]

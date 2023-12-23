@@ -94,6 +94,10 @@ const createEncontreiroFormSchema = z.object({
     .min(1, { message: 'Informe o ano do seu primeiro encontro' })
     .min(1930, { message: 'Por favor insira um ano válido' })
     .max(2023, { message: 'Por favor insira um ano válido' }),
+  ejcChurch: z.object(selectObject, {
+    required_error: 'Informe a sua paróquia do seu primeiro EJC',
+  })
+    .transform((church) => church.value),
   musicalInstrument: z.array(z.object(selectObject), {
     required_error: SELECT_ONE_OPTION,
   }),
@@ -115,8 +119,16 @@ const createEncontreiroFormSchema = z.object({
     invalid_type_error: 'Selecione pelo menos 1 equipe da cor verde',
   })
     .min(1, { message: 'Selecione pelo menos 1 equipe da cor verde' }),
-  shirtSize: z.string(),
+  shirtSize: z.object(selectObject, {
+    required_error: 'Selecione o tamanho de camisa',
+  })
+    .transform((shirt) => shirt.value),
+  lastEjcTeam: z.object(selectObject, {
+    required_error: 'Selecione uma opção',
+  })
+    .transform((ejcTeam) => ejcTeam.value),
   badgeName: z.string().min(1, { message: 'Digite o nome que irá no seu crachá' }),
+  foodRestriction: z.string().optional(),
   relationshipInfos: z.array(z.object({
     personName: z.string().min(1, { message: 'Nome da pessoa' }),
     relationshipDegree: z.string().min(1, { message: 'Campo importante' }),
@@ -127,8 +139,6 @@ const createEncontreiroFormSchema = z.object({
   path: ['confirmPassword'],
 })
   .refine(({ ejcYear }) => {
-    console.log(new Date().getFullYear() - ejcYear);
-
     return new Date().getFullYear() - ejcYear >= 1;
   }, {
     message: `Você precisa esperar 1 ano
