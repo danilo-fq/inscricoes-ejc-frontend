@@ -16,6 +16,7 @@ import createEncontreiroFormSchema from '../../schemas/createEncontreiroFormSche
 import paroquiasMock from '../../mocks/paroquias.json';
 import habMusicaisMock from '../../mocks/habilidadesMusicais.json';
 import ejcEquipesMock from '../../mocks/ejcEquipes.json';
+import camisasMock from '../../mocks/tamanhoCamisa.json';
 import CheckboxContainer from '../../components/CheckboxContainer';
 import FieldArrayInputs from '../../components/FieldArrayInputs';
 
@@ -86,7 +87,7 @@ export default function SignUp() {
         <section
           id="registration-section"
           className="p-10 max-sm:p-0 max-sm:py-10 flex max-sm:flex-col
-          items-center gap-16 flex-wrap justify-center"
+          items-start gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -191,7 +192,7 @@ export default function SignUp() {
         <section
           id="address-section"
           className="p-10 max-sm:p-0 max-sm:py-3 flex max-sm:flex-col
-          items-center gap-16 flex-wrap justify-center"
+          items-start gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -224,7 +225,7 @@ export default function SignUp() {
         <section
           id="religious-section"
           className="p-10 max-sm:p-0 max-sm:py-3 flex max-sm:flex-col
-          items-center gap-16 flex-wrap justify-center"
+          items-start gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -279,7 +280,7 @@ export default function SignUp() {
         <section
           id="ejc-section"
           className="p-10 max-sm:p-0 max-sm:py-5 flex max-sm:flex-col
-          items-center gap-16 flex-wrap justify-center"
+          items-start gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -303,6 +304,18 @@ export default function SignUp() {
               rounded-lg border-gray-300 border-2 focus:outline-gray-500"
             />
             <GenericSelect
+              labelDescription="Qual paróquia do seu primeiro EJC:"
+              selectName="ejcChurch"
+              placeHolder="Selecione uma opção"
+              width="1080px"
+              optionsSelect={ paroquiasMock }
+              getOptionLabel={ (option) => {
+                if (option.value === 'Outra') return option.value;
+                return `${option.value} - ${option.cidade}`;
+              } }
+            />
+            <div className="w-[400px] invisible max-[1366px]:hidden" />
+            <GenericSelect
               isMulti
               labelDescription="Você tem habilidades musicais?"
               selectName="musicalInstrument"
@@ -311,8 +324,7 @@ export default function SignUp() {
                 dynamicSelectChange(selectedOptions, 'musicalInstrument');
               } }
             />
-            <div className="w-[400px] invisible max-sm:hidden" />
-
+            <div className="w-[400px] invisible max-[1366px]:hidden" />
             <GenericSelect
               isMulti
               labelDescription="Selecione as equipe que você já serviu:"
@@ -337,7 +349,7 @@ export default function SignUp() {
         <section
           id="ejcTeams-section"
           className="p-10 max-sm:p-0 max-sm:py-10 flex max-sm:flex-col
-          items-center gap-16 flex-wrap justify-center"
+          items-start gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -379,7 +391,7 @@ export default function SignUp() {
         <section
           id="more-information-section"
           className="p-10 max-sm:p-0 max-sm:py-3 flex max-sm:flex-col
-          items-center gap-16 flex-wrap justify-center"
+          items-start gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -396,14 +408,43 @@ export default function SignUp() {
             className="basis-96 max-sm:basis-auto flex-[0.8] max-sm:flex-1 flex
             max-sm:flex-col max-sm:items-center flex-wrap gap-6"
           >
-            <GenericInput
+            <GenericSelect
               labelDescription="Tamanho da Camisa:"
-              inputName="shirtSize"
-              placeHolder="Ex: GG Babylook | Ex: G normal"
+              selectName="shirtSize"
+              placeHolder="Selecione uma opção"
+              optionsSelect={ camisasMock }
+              width="708"
+              optionalButton={
+                <span
+                  className="text-xs ml-4 text-blue-500 hover:underline"
+                >
+                  <a
+                    href="https://drive.google.com/file/d/1OU9lOAMp8iiWCSsQQF8tFY9iPIra-Gd3/view?usp=drive_link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ver Tamanhos
+                  </a>
+                </span>
+              }
+            />
+            <GenericSelect
+              labelDescription="Serviu no nosso último encontro?
+              Em qual equipe?"
+              selectName="lastEjcTeam"
+              placeHolder="Selecione uma opção"
+              optionsSelect={ ejcEquipesMock }
+              width="708"
             />
             <GenericInput
               labelDescription="Nome do Crachá:"
+              placeHolder="Ex: João das Neves"
               inputName="badgeName"
+            />
+            <GenericInput
+              labelDescription="Possui restrição alimentar? Informe qual(ais)."
+              placeHolder="Ex: Lactose, Frutos do mar, Glúten..."
+              inputName="foodRestriction"
             />
             <div className="w-[400px] invisible max-sm:hidden" />
             <div>
