@@ -28,7 +28,8 @@ export default function QuestionPage() {
   };
 
   return (
-    <main className="mt-48 max-sm:mt-24 flex flex-col items-center ">
+    <main className="mt-36 max-sm:mt-16 flex flex-col items-center ">
+      <img src="/logo-ejc-sjt.png" className="w-24 h-24 mb-9" alt="" />
       <div className="flex justify-center">
         <h1
           className="w-[1200px] max-sm:w-[90%] text-4xl
