@@ -18,7 +18,7 @@ type SelectProps = {
     inputName: string,
   ) => void;
   getOptionLabel?: (option: OptionType) => string;
-  optionalButton?: React.ReactNode;
+  optionalElement?: React.ReactNode;
   width?: string;
 };
 
@@ -34,7 +34,7 @@ export default function GenericSelect({
   ],
   onChangeSelect = () => {},
   getOptionLabel = (option) => option.label || '',
-  optionalButton = '',
+  optionalElement = '',
 }: SelectProps) {
   const { control, formState: { errors } } = useFormContext();
 
@@ -95,7 +95,7 @@ export default function GenericSelect({
       max-w-[459px] max-sm:max-w-[288px] ${styleLabel}` }
     >
       {labelDescription}
-      { optionalButton }
+      { optionalElement }
       <Controller
         control={ control }
         name={ selectName }

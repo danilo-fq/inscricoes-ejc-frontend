@@ -7,6 +7,7 @@
     {"value": "Coordenação Geral", "label": "Coordenação Geral"}, 
     {"value": "Correios", "label": "Correios"}, 
     {"value": "Cozinha", "label": "Cozinha"}, 
+    {"value": "Equipe X", "label": "Equipe X"}, 
     {"value": "Externa", "label": "Externa"}, 
     {"value": "Imprensa / Secretaria", "label": "Imprensa / Secretaria"}, 
     {"value": "Lanchinho", "label": "Lanchinho"}, 
@@ -17,5 +18,6 @@
     {"value": "Sementinha", "label": "Sementinha"}, 
     {"value": "Som e Iluminação", "label": "Som e Iluminação"}, 
     {"value": "Trânsito", "label": "Trânsito"}, 
-    {"value": "Vigília", "label": "Vigília"}
+    {"value": "Vigília", "label": "Vigília"},
+    {"value": "Outra", "label": "Outra"}
 ]
