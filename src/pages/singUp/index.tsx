@@ -3,6 +3,7 @@
 import {
   useForm,
   FormProvider,
+  useWatch,
 } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
@@ -37,10 +38,12 @@ export default function SignUp() {
   const {
     handleSubmit,
     setValue,
-    formState: { errors },
+    control,
   } = methods;
 
-  console.log(errors);
+  const checkInput = useWatch(
+    { control, name: ['ejcTeamParticipation', 'ejcTeamCoordination'] },
+  );
 
   const createEncontreiro = (data: CreateEncontreiroData) => {
     console.log('submit com sucesso', data);
@@ -59,7 +62,7 @@ export default function SignUp() {
     const isEmpty = findValue.length === 0;
 
     if (!isEmpty) {
-      setValue(inputName, findValue);
+      setValue(inputName, findValue.map((option) => option.value));
     }
 
     switch (inputName) {
@@ -87,7 +90,7 @@ export default function SignUp() {
         <section
           id="registration-section"
           className="p-10 max-sm:p-0 max-sm:py-10 flex max-sm:flex-col
-          items-start gap-16 flex-wrap justify-center"
+          items-start max-sm:items-center gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -192,7 +195,7 @@ export default function SignUp() {
         <section
           id="address-section"
           className="p-10 max-sm:p-0 max-sm:py-3 flex max-sm:flex-col
-          items-start gap-16 flex-wrap justify-center"
+          items-start max-sm:items-center gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -225,7 +228,7 @@ export default function SignUp() {
         <section
           id="religious-section"
           className="p-10 max-sm:p-0 max-sm:py-3 flex max-sm:flex-col
-          items-start gap-16 flex-wrap justify-center"
+          items-start max-sm:items-center gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -280,7 +283,7 @@ export default function SignUp() {
         <section
           id="ejc-section"
           className="p-10 max-sm:p-0 max-sm:py-5 flex max-sm:flex-col
-          items-start gap-16 flex-wrap justify-center"
+          items-start max-sm:items-center gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -343,13 +346,43 @@ export default function SignUp() {
                 dynamicSelectChange(selectedOptions, 'ejcTeamCoordination');
               } }
             />
+            {checkInput[0]
+            && checkInput[0].some((team) => team === 'Outra') && (
+              <GenericInput
+                inputName="otherEjcTeamParticipation"
+                labelDescription="Outras Equipes que já serviu:"
+                optionalElement={
+                  <span
+                    className="w-fit text-xs text-red-300"
+                  >
+                    Separe por vírgula
+                  </span>
+                }
+                placeHolder="Ex: Anjos, Mibs, ..."
+              />
+            )}
+            {checkInput[1]
+            && checkInput[1].some((team) => team === 'Outra') && (
+              <GenericInput
+                inputName="otherEjcTeamCoordination"
+                labelDescription="Outras Equipes que já coordenou:"
+                optionalElement={
+                  <p
+                    className="text-xs text-red-300"
+                  >
+                    Separe por vírgula!
+                  </p>
+                }
+                placeHolder="Ex: Anjos, Mibs, ..."
+              />
 
+            )}
           </div>
         </section>
         <section
           id="ejcTeams-section"
           className="p-10 max-sm:p-0 max-sm:py-10 flex max-sm:flex-col
-          items-start gap-16 flex-wrap justify-center"
+          items-start max-sm:items-center gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -368,7 +401,7 @@ export default function SignUp() {
               team="ejcRedTeams"
               styleDiv="h-[340px] p-6
                bg-red-100 border-red-500 rounded-lg border-2"
-              contents={ ['Cozinha', 'Equipe X', 'Minibox',
+              contents={ ['Cozinha', 'Minibox',
                 'Ordem', 'Sementinha', 'Vigília'] }
             />
             <CheckboxContainer
@@ -391,7 +424,7 @@ export default function SignUp() {
         <section
           id="more-information-section"
           className="p-10 max-sm:p-0 max-sm:py-3 flex max-sm:flex-col
-          items-start gap-16 flex-wrap justify-center"
+          items-start max-sm:items-center gap-16 flex-wrap justify-center"
         >
           <div
             className="flex flex-col justify-center items-start max-sm:items-center
@@ -414,12 +447,12 @@ export default function SignUp() {
               placeHolder="Selecione uma opção"
               optionsSelect={ camisasMock }
               width="708"
-              optionalButton={
+              optionalElement={
                 <span
                   className="text-xs ml-4 text-blue-500 hover:underline"
                 >
                   <a
-                    href="https://drive.google.com/file/d/1OU9lOAMp8iiWCSsQQF8tFY9iPIra-Gd3/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/1OU9lOAMp8iiWCSsQQF8tFY9iPIra-Gd3/view?usp=sharing"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -446,7 +479,13 @@ export default function SignUp() {
               placeHolder="Ex: Lactose, Frutos do mar, Glúten..."
               inputName="foodRestriction"
             />
-            <div className="w-[400px] invisible max-sm:hidden" />
+            <GenericInput
+              labelDescription="Possui filhos? Se sim, quantos?"
+              inputType="number"
+              placeHolder="Deixe em branco se você não tem filhos"
+              inputName="children"
+            />
+            <div className="w-[570px] invisible max-sm:hidden" />
             <div>
               <FieldArrayInputs
                 fatherFieldsName="relationshipInfos"

@@ -93,20 +93,32 @@ const createEncontreiroFormSchema = z.object({
   ejcYear: z.coerce.number()
     .min(1, { message: 'Informe o ano do seu primeiro encontro' })
     .min(1930, { message: 'Por favor insira um ano válido' })
-    .max(2023, { message: 'Por favor insira um ano válido' }),
+    .max(2029, { message: 'Por favor insira um ano válido' }),
   ejcChurch: z.object(selectObject, {
     required_error: 'Informe a sua paróquia do seu primeiro EJC',
   })
     .transform((church) => church.value),
   musicalInstrument: z.array(z.object(selectObject), {
     required_error: SELECT_ONE_OPTION,
+  }).transform((musicalhabilites) => {
+    return musicalhabilites.map((musical) => musical.value);
   }),
   ejcTeamParticipation: z.array(z.object(selectObject), {
     required_error: SELECT_ONE_OPTION,
+  }).transform((ejcTeams) => {
+    return ejcTeams.map((team) => team.value);
   }),
   ejcTeamCoordination: z.array(z.object(selectObject), {
     required_error: SELECT_ONE_OPTION,
+  }).transform((ejcTeamsCoordination) => {
+    return ejcTeamsCoordination.map((teamCoordination) => teamCoordination.value);
   }),
+  otherEjcTeamParticipation: z.optional(
+    z.string().min(1, { message: 'Campo Obrigatório' }),
+  ),
+  otherEjcTeamCoordination: z.optional(
+    z.string().min(1, { message: 'Campo Obrigatório' }),
+  ),
   ejcRedTeams: z.array(z.string(), {
     invalid_type_error: 'Selecione pelo menos 1 equipe da cor vermelha',
   })
@@ -129,6 +141,11 @@ const createEncontreiroFormSchema = z.object({
     .transform((ejcTeam) => ejcTeam.value),
   badgeName: z.string().min(1, { message: 'Digite o nome que irá no seu crachá' }),
   foodRestriction: z.string().optional(),
+  children: z.coerce.number()
+    .nonnegative({ message: 'Por favor insira valores positivos' })
+    .gte(0, { message: 'Por favor insira valor válido' })
+    .lt(10, { message: 'Por favor insira valor válido' })
+    .default(0),
   relationshipInfos: z.array(z.object({
     personName: z.string().min(1, { message: 'Nome da pessoa' }),
     relationshipDegree: z.string().min(1, { message: 'Campo importante' }),
@@ -137,13 +154,6 @@ const createEncontreiroFormSchema = z.object({
 }).refine(({ password, confirmPassword }) => password === confirmPassword, {
   message: 'Senhas não coincidem',
   path: ['confirmPassword'],
-})
-  .refine(({ ejcYear }) => {
-    return new Date().getFullYear() - ejcYear >= 1;
-  }, {
-    message: `Você precisa esperar 1 ano
-  após seu primeiro encontro para servir conosco`,
-    path: ['ejcYear'],
-  });
+});
 
 export default createEncontreiroFormSchema;

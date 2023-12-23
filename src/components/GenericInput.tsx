@@ -11,11 +11,12 @@ type InputProps = {
   inputId?: string;
   placeHolder?: string;
   parentField?: string;
+  optionalElement?: React.ReactNode;
 };
 
 export default function GenericInput({
   labelDescription,
-  styleLabel = 'text-base font-medium flex flex-col',
+  styleLabel = 'text-base font-medium flex flex-col max-w-[460px] max-sm:max-w-[288px]',
   styleInput = `h-12 w-[458px] max-sm:w-72 px-3 shadow-sm placeholder:font-normal
   rounded-lg border-gray-300 border-2 focus:outline-gray-500`,
   inputType = 'text',
@@ -23,9 +24,9 @@ export default function GenericInput({
   placeHolder = '',
   inputId = inputName,
   parentField = '',
+  optionalElement = '',
 }: InputProps) {
   const { register, formState: { errors } } = useFormContext();
-  console.log('quem é inputName', inputName);
 
   const error = errors[parentField || inputName];
 
@@ -37,7 +38,6 @@ export default function GenericInput({
         return error[Number(childFieldIndex)][childFieldName];
       }
     }
-    console.log('chega aqui no fim do getError? e quem é error', error);
 
     return error;
   };
@@ -48,6 +48,7 @@ export default function GenericInput({
       htmlFor={ inputName }
     >
       {labelDescription}
+      { optionalElement }
       <input
         id={ inputId }
         { ...register(inputName) }

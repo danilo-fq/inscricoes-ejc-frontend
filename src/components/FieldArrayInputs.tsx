@@ -42,7 +42,10 @@ export default function FieldArrayInputs({
   return (
     <div className="mt-5">
       <div className="flex flex-col justify-center items-start max-sm:items-center gap-1">
-        <p className="text-lg font-medium flex flex-col">
+        <p
+          className="text-lg font-medium flex flex-col
+        max-sm:max-w-[288px] max-sm:text-center"
+        >
           {fieldsDescription}
         </p>
         <Button
