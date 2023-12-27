@@ -40,8 +40,10 @@ export default function Encontrista() {
     >
       <img src="./logo-ejc-sjt.png" className="w-24 h-24 mb-6" alt="" />
       <p className="text-4xl max-sm:text-xl font-light text-black text-center">
-        As inscrições para vivênciar a primeira vez o EJC ainda{' '}
-        <span className="font-medium">não estão abertas</span>!
+        As inscrições para vivênciar a primeira vez o EJC ainda
+        {' '}
+        <span className="font-medium">não estão abertas</span>
+        !
       </p>
       <p className="text-2xl max-sm:text-lg font-normal text-center mt-8">
         Acompanhe nossa página do instagram para saber quando estarão abertas as

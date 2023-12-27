@@ -1,34 +1,42 @@
-import { Link /* useNavigate */ } from 'react-router-dom';
+import { Link, useNavigate,
+  useLocation } from 'react-router-dom';
+import Button from './Button';
 // import { useState } from 'react';
-// import Button from './Button';
 
 export default function Header() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const [isNavOpen, setIsNavOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  console.log('quem é location Header,', pathname);
 
   return (
-    <header className="my-6 flex justify-around items-center w-full bg-white h-14">
+    <header className="my-6 flex justify-between items-center w-full bg-white h-14">
       <img
-        className="w-16 h-16 absolute
-             left-16 top-4 max-sm:right-7"
-        src="./logo-ejc-sjt.png"
+        className="w-16 h-16 ml-24 max-sm:ml-7"
+        src="/logo-ejc-sjt.png"
         alt=""
       />
 
       <nav
         className="flex gap-7 justify-center items-center
-          w-auto absolute right-16"
+          w-auto mr-24 max-sm:mr-7"
       >
-        <Link to="/inscricoes-encontreiro" className="text-lg font-medium">
+        <Link to="/inscricao-encontreiro" className="text-lg font-medium">
           Inscrições
         </Link>
-        {/* <Button
+        { pathname.startsWith('/encontreiro/') ? (
+          <Button
+            name="Sair"
+            className="text-xl text-red-500 cursor-pointer"
+            handleClick={ () => navigate('/login') }
+          />
+        ) : (<Button
           name="ENTRAR"
           handleClick={ () => navigate('/login') }
           className={ `w-36 h-12 bg-red-500 rounded-lg
            text-white font-sans font-semibold text-lg` }
-          />
-        */}
+        />) }
       </nav>
       {/* <nav className="flex flex-col lg:hidden relative left-4">
         <Button

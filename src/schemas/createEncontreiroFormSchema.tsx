@@ -17,9 +17,7 @@ const createEncontreiroFormSchema = z
         return name
           .trim()
           .split(' ')
-          .map((word) =>
-            word[0].toUpperCase().concat(word.substring(1).toLowerCase())
-          )
+          .map((word) => word[0].toUpperCase().concat(word.substring(1).toLowerCase()))
           .join(' ');
       }),
     email: z
@@ -41,9 +39,7 @@ const createEncontreiroFormSchema = z
       .max(new Date('2007-01-01'), {
         message: 'Você ainda não tem a idade mínima permitida',
       })
-      .transform((date) =>
-        date.toLocaleDateString('pt-BR', { timeZone: 'UTC' })
-      ),
+      .transform((date) => date.toLocaleDateString('pt-BR', { timeZone: 'UTC' })),
     gender: z
       .object(selectObject, {
         required_error: 'Selecione uma opção',
@@ -71,7 +67,7 @@ const createEncontreiroFormSchema = z
       .string()
       .min(1, { message: 'Informe o nome da sua Avenida, rua ou travessia' }),
     houseNumber: z.string().optional(),
-    addressComplement: z.string(),
+    addressComplement: z.string().optional(),
     neighborhood: z
       .string()
       .min(1, { message: 'Informe o bairro onde você reside' }),
@@ -135,10 +131,10 @@ const createEncontreiroFormSchema = z
       required_error: SELECT_ONE_OPTION,
     }),
     otherEjcTeamParticipation: z.optional(
-      z.string().min(1, { message: 'Campo Obrigatório' })
+      z.string().min(1, { message: 'Campo Obrigatório' }),
     ),
     otherEjcTeamCoordination: z.optional(
-      z.string().min(1, { message: 'Campo Obrigatório' })
+      z.string().min(1, { message: 'Campo Obrigatório' }),
     ),
     ejcRedTeams: z
       .array(z.string(), {
@@ -183,7 +179,7 @@ const createEncontreiroFormSchema = z
             .string()
             .min(1, { message: 'Campo importante' }),
           contact: z.string().min(1, { message: 'Contato da pessoa' }),
-        })
+        }),
       )
       .optional(),
   })

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-zinc-700 py-3 max-sm:py-4">
+    <footer className="bg-zinc-700 py-3 max-sm:py-5 mt-auto">
       <p className="text-center text-white text-sm max-sm:text-[13px]">
         © 2023 Copyright EJC São Judas Tadeu. Desenvolvido por:
         {' '}

@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SuccessInscription() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const redirectTimer = setTimeout(() => {
-      window.location.href = 'https://www.instagram.com/ejcsaojudastadeu/';
+      navigate('/encontreiro/1');
     }, 10000);
 
     return () => clearTimeout(redirectTimer);
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="flex flex-col justify-center items-center mt-24 max-sm:text-center">

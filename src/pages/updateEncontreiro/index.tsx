@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-max-depth */
 import { useForm, FormProvider, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Footer from '../../components/Footer';
@@ -23,7 +23,7 @@ import { api } from '../../utils/axtios';
 import EncontreiroContext,
 { CreateEncontreiroData } from '../../context/EncontreiroContext';
 
-export default function SignUp() {
+export default function UpdateEncontreiro() {
   const [isLoading, setIsLoading] = useState(false);
   const [dynamicMusical, setDynamicMusical] = useState<OptionsType>(habMusicaisMock);
   const [dynamicTeams, setDynamicTeams] = useState<OptionsType>(ejcEquipesMock);
@@ -32,6 +32,11 @@ export default function SignUp() {
   const encontreiroContext = useContext(EncontreiroContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    Object.keys(encontreiroContext.userData)
+      .map((dataType) => setValue(dataType, encontreiroContext.userData[dataType]));
+  }, [encontreiroContext.userData]);
 
   const methods = useForm<CreateEncontreiroData>({
     resolver: zodResolver(createEncontreiroFormSchema),
