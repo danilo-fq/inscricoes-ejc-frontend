@@ -1,10 +1,6 @@
 /* eslint-disable max-lines */
 /* eslint-disable react/jsx-max-depth */
-import {
-  useForm,
-  FormProvider,
-  useWatch,
-} from 'react-hook-form';
+import { useForm, FormProvider, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +8,10 @@ import Button from '../../components/Button';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import GenericInput from '../../components/GenericInput';
-import GenericSelect, { OptionType, OptionsType } from '../../components/GenericSelect';
+import GenericSelect, {
+  OptionType,
+  OptionsType,
+} from '../../components/GenericSelect';
 import createEncontreiroFormSchema from '../../schemas/createEncontreiroFormSchema';
 import paroquiasMock from '../../mocks/paroquias.json';
 import habMusicaisMock from '../../mocks/habilidadesMusicais.json';
@@ -20,13 +19,16 @@ import ejcEquipesMock from '../../mocks/ejcEquipes.json';
 import camisasMock from '../../mocks/tamanhoCamisa.json';
 import CheckboxContainer from '../../components/CheckboxContainer';
 import FieldArrayInputs from '../../components/FieldArrayInputs';
+import { api } from '../../utils/axtios';
 
 type CreateEncontreiroData = Zod.infer<typeof createEncontreiroFormSchema>;
 
 export default function SignUp() {
-  const [dynamicMusical, setDynamicMusical] = useState<OptionsType>(habMusicaisMock);
+  const [dynamicMusical, setDynamicMusical] =
+    useState<OptionsType>(habMusicaisMock);
   const [dynamicTeams, setDynamicTeams] = useState<OptionsType>(ejcEquipesMock);
-  const [dynamicCoordTeams, setDynamicCoordTeams] = useState<OptionsType>(ejcEquipesMock);
+  const [dynamicCoordTeams, setDynamicCoordTeams] =
+    useState<OptionsType>(ejcEquipesMock);
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -36,31 +38,32 @@ export default function SignUp() {
     mode: 'onBlur',
   });
 
-  const {
-    handleSubmit,
-    setValue,
+  const { handleSubmit, setValue, control } = methods;
+
+  const checkInput = useWatch({
     control,
-  } = methods;
+    name: ['ejcTeamParticipation', 'ejcTeamCoordination'],
+  });
 
-  const checkInput = useWatch(
-    { control, name: ['ejcTeamParticipation', 'ejcTeamCoordination'] },
-  );
-
-  const createEncontreiro = (data: CreateEncontreiroData) => {
+  const createEncontreiro = async (data: CreateEncontreiroData) => {
     console.log('submit com sucesso', data);
     setIsLoading(true);
+
+    await api.post('/inscricao-encontreiro', data);
+
+    setIsLoading(false);
 
     navigate('/confirmacao-encontreiro');
   };
 
   const dynamicSelectChange = (
     selected: readonly OptionType[],
-    inputName: 'musicalInstrument'
-    | 'ejcTeamParticipation'
-    | 'ejcTeamCoordination',
+    inputName:
+      | 'musicalInstrument'
+      | 'ejcTeamParticipation'
+      | 'ejcTeamCoordination'
   ) => {
-    const findValue = selected
-      .filter((option) => option.value === 'Nenhuma');
+    const findValue = selected.filter((option) => option.value === 'Nenhuma');
     const isEmpty = findValue.length === 0;
 
     if (!isEmpty) {
@@ -88,7 +91,11 @@ export default function SignUp() {
         className="flex flex-col justify-center items-center
         mt-36 max-sm:mt-24 max-sm:mx-3 max-sm:text-center"
       >
-        <img src="/logo-ejc-sjt.png" className="animate-spin w-24 h-24 mb-6" alt="" />
+        <img
+          src="./logo-ejc-sjt.png"
+          className="animate-spin w-24 h-24 mb-6"
+          alt=""
+        />
         <p
           className="animate-bounce text-4xl
         max-sm:text-xl font-light text-black text-center"
@@ -100,10 +107,10 @@ export default function SignUp() {
   }
 
   return (
-    <FormProvider { ...methods }>
+    <FormProvider {...methods}>
       <Header />
       <form
-        onSubmit={ handleSubmit(createEncontreiro) }
+        onSubmit={handleSubmit(createEncontreiro)}
         className="h-fit bg-zinc-50 flex flex-col"
       >
         <section
@@ -158,10 +165,10 @@ export default function SignUp() {
               labelDescription="Sexo:"
               selectName="gender"
               placeHolder="Selecione uma opção"
-              optionsSelect={ [
+              optionsSelect={[
                 { value: 'Feminino', label: 'Feminino' },
                 { value: 'Masculino', label: 'Masculino' },
-              ] }
+              ]}
               width="708"
             />
 
@@ -188,14 +195,14 @@ export default function SignUp() {
               selectName="church"
               placeHolder="Selecione uma opção"
               width="1080px"
-              optionsSelect={ paroquiasMock }
-              getOptionLabel={ (option) => {
+              optionsSelect={paroquiasMock}
+              getOptionLabel={(option) => {
                 if (option.value === 'Outra') return option.value;
                 return `${option.value} - ${option.cidade}`;
-              } }
+              }}
             />
 
-            <div className="w-[402px] invisible max-sm:hidden" />
+            <div className="w-[420px] invisible max-sm:hidden" />
 
             <GenericInput
               inputName="password"
@@ -220,7 +227,9 @@ export default function SignUp() {
             className="flex flex-col justify-center items-start max-sm:items-center
           flex-[0.2] max-sm:flex-1 ml-16 max-sm:ml-0"
           >
-            <h2 className="text-2xl self-start mb-2 max-sm:self-center">Endereço</h2>
+            <h2 className="text-2xl self-start mb-2 max-sm:self-center">
+              Endereço
+            </h2>
             <p className="w-[330px] text-gray-500 max-sm:text-center">
               Coloque as informações correspondente onde você reside atualmente.
             </p>
@@ -279,13 +288,13 @@ export default function SignUp() {
             <GenericSelect
               labelDescription="Situação Matrimonial:"
               selectName="maritalStatus"
-              optionsSelect={ [
+              optionsSelect={[
                 { value: 'Solteiro', label: 'Solteiro' },
                 { value: 'Casado', label: 'Casado' },
                 { value: 'União Estável', label: 'União Estável' },
                 { value: 'Divorciado', label: 'Divorciado' },
                 { value: 'Viúvo(a)', label: 'Viúvo(a)' },
-              ] }
+              ]}
             />
 
             <GenericSelect
@@ -330,72 +339,65 @@ export default function SignUp() {
               selectName="ejcChurch"
               placeHolder="Selecione uma opção"
               width="1080px"
-              optionsSelect={ paroquiasMock }
-              getOptionLabel={ (option) => {
+              optionsSelect={paroquiasMock}
+              getOptionLabel={(option) => {
                 if (option.value === 'Outra') return option.value;
                 return `${option.value} - ${option.cidade}`;
-              } }
+              }}
             />
             <div className="w-[400px] invisible max-[1366px]:hidden" />
             <GenericSelect
               isMulti
               labelDescription="Você tem habilidades musicais?"
               selectName="musicalInstrument"
-              optionsSelect={ dynamicMusical }
-              onChangeSelect={ (selectedOptions) => {
+              optionsSelect={dynamicMusical}
+              onChangeSelect={(selectedOptions) => {
                 dynamicSelectChange(selectedOptions, 'musicalInstrument');
-              } }
+              }}
             />
-            <div className="w-[400px] invisible max-[1366px]:hidden" />
+            <div className="w-[420px] invisible max-[1366px]:hidden" />
             <GenericSelect
               isMulti
               labelDescription="Selecione as equipe que você já serviu:"
               selectName="ejcTeamParticipation"
-              optionsSelect={ dynamicTeams }
-              onChangeSelect={ (selectedOptions) => {
+              optionsSelect={dynamicTeams}
+              onChangeSelect={(selectedOptions) => {
                 dynamicSelectChange(selectedOptions, 'ejcTeamParticipation');
-              } }
+              }}
             />
             <GenericSelect
               isMulti
               labelDescription="Selecione as equipe que você já coordenou:"
               selectName="ejcTeamCoordination"
-              optionsSelect={ dynamicCoordTeams }
-              onChangeSelect={ (selectedOptions) => {
+              optionsSelect={dynamicCoordTeams}
+              onChangeSelect={(selectedOptions) => {
                 dynamicSelectChange(selectedOptions, 'ejcTeamCoordination');
-              } }
+              }}
             />
-            {checkInput[0]
-            && checkInput[0].some((team) => team.value === 'Outra') && (
-              <GenericInput
-                inputName="otherEjcTeamParticipation"
-                labelDescription="Outras Equipes que já serviu:"
-                optionalElement={
-                  <span
-                    className="w-fit text-xs text-red-300"
-                  >
-                    Separe por vírgula
-                  </span>
-                }
-                placeHolder="Ex: Anjos, Mibs, ..."
-              />
-            )}
-            {checkInput[1]
-            && checkInput[1].some((team) => team.value === 'Outra') && (
-              <GenericInput
-                inputName="otherEjcTeamCoordination"
-                labelDescription="Outras Equipes que já coordenou:"
-                optionalElement={
-                  <p
-                    className="text-xs text-red-300"
-                  >
-                    Separe por vírgula!
-                  </p>
-                }
-                placeHolder="Ex: Anjos, Mibs, ..."
-              />
-
-            )}
+            {checkInput[0] &&
+              checkInput[0].some((team) => team.value === 'Outra') && (
+                <GenericInput
+                  inputName="otherEjcTeamParticipation"
+                  labelDescription="Outras Equipes que já serviu:"
+                  optionalElement={
+                    <span className="w-fit text-xs text-red-300">
+                      Separe por vírgula
+                    </span>
+                  }
+                  placeHolder="Ex: Anjos, Mibs, ..."
+                />
+              )}
+            {checkInput[1] &&
+              checkInput[1].some((team) => team.value === 'Outra') && (
+                <GenericInput
+                  inputName="otherEjcTeamCoordination"
+                  labelDescription="Outras Equipes que já coordenou:"
+                  optionalElement={
+                    <p className="text-xs text-red-300">Separe por vírgula!</p>
+                  }
+                  placeHolder="Ex: Anjos, Mibs, ..."
+                />
+              )}
           </div>
         </section>
         <section
@@ -407,7 +409,9 @@ export default function SignUp() {
             className="flex flex-col justify-center items-start max-sm:items-center
           flex-[0.2] max-sm:flex-1 ml-16 max-sm:ml-0"
           >
-            <h2 className="text-2xl self-start mb-2 max-sm:self-center">Equipes</h2>
+            <h2 className="text-2xl self-start mb-2 max-sm:self-center">
+              Equipes
+            </h2>
             <p className="w-[330px] text-gray-500 max-sm:text-center">
               Selecione pelo menos 1 equipe de cada cor.
             </p>
@@ -420,22 +424,39 @@ export default function SignUp() {
               team="ejcRedTeams"
               styleDiv="h-[340px] p-6
                bg-red-100 border-red-500 rounded-lg border-2"
-              contents={ ['Cozinha', 'Minibox',
-                'Ordem', 'Sementinha', 'Vigília'] }
+              contents={[
+                'Cozinha',
+                'Minibox',
+                'Ordem',
+                'Sementinha',
+                'Vigília',
+              ]}
             />
             <CheckboxContainer
               team="ejcYellowTeams"
               styleDiv="h-[340px] p-6
                bg-yellow-100 border-yellow-500 rounded-lg border-2"
-              contents={ ['Bandinha', 'Correios',
-                'Externa', 'Lanchinho', 'Liturgia', 'Som & Iluminação', 'Trânsito'] }
+              contents={[
+                'Bandinha',
+                'Correios',
+                'Externa',
+                'Lanchinho',
+                'Liturgia',
+                'Som e Iluminação',
+                'Trânsito',
+              ]}
             />
             <CheckboxContainer
               team="ejcGreenTeams"
               styleDiv="h-[340px] p-6
                bg-green-100 border-green-500 rounded-lg border-2"
-              contents={ ['Apresentadores', 'Boa Vontade', 'Círculos',
-                'Imprensa', 'Recepção'] }
+              contents={[
+                'Apresentadores',
+                'Boa Vontade',
+                'Círculos',
+                'Imprensa',
+                'Recepção',
+              ]}
             />
           </div>
           <hr className="rounded-lg h-[1.3px] w-full bg-zinc-200 " />
@@ -464,12 +485,10 @@ export default function SignUp() {
               labelDescription="Tamanho da Camisa:"
               selectName="shirtSize"
               placeHolder="Selecione uma opção"
-              optionsSelect={ camisasMock }
+              optionsSelect={camisasMock}
               width="708"
               optionalElement={
-                <span
-                  className="text-xs ml-4 text-blue-500 hover:underline"
-                >
+                <span className="text-xs ml-4 text-blue-500 hover:underline">
                   <a
                     href="https://drive.google.com/file/d/1OU9lOAMp8iiWCSsQQF8tFY9iPIra-Gd3/view?usp=sharing"
                     target="_blank"
@@ -485,7 +504,9 @@ export default function SignUp() {
               Em qual equipe?"
               selectName="lastEjcTeam"
               placeHolder="Selecione uma opção"
-              optionsSelect={ ejcEquipesMock }
+              optionsSelect={ejcEquipesMock.filter(
+                (item) => item.value !== 'Outra'
+              )}
               width="708"
             />
             <GenericInput
@@ -495,7 +516,7 @@ export default function SignUp() {
             />
             <GenericInput
               labelDescription="Possui restrição alimentar? Informe qual(ais)."
-              placeHolder="Ex: Lactose, Frutos do mar, Glúten..."
+              placeHolder="Ex: Lactose, Glúten, Frutos do mar..."
               inputName="foodRestriction"
             />
             <GenericInput
@@ -509,13 +530,23 @@ export default function SignUp() {
               <FieldArrayInputs
                 fatherFieldsName="relationshipInfos"
                 fieldsDescription="Conhece alguém que irá servir conosco?"
-                genericFields={ [
-                  { fieldName: 'personName', fieldLabel: 'Nome', fieldType: 'text' },
-                  { fieldName: 'relationshipDegree',
+                genericFields={[
+                  {
+                    fieldName: 'personName',
+                    fieldLabel: 'Nome',
+                    fieldType: 'text',
+                  },
+                  {
+                    fieldName: 'relationshipDegree',
                     fieldLabel: 'Parentesco',
-                    fieldType: 'text' },
-                  { fieldName: 'contact', fieldLabel: 'Telefone', fieldType: 'text' },
-                ] }
+                    fieldType: 'text',
+                  },
+                  {
+                    fieldName: 'contact',
+                    fieldLabel: 'Telefone',
+                    fieldType: 'text',
+                  },
+                ]}
               />
             </div>
           </div>
@@ -524,9 +555,9 @@ export default function SignUp() {
         <Button
           type="submit"
           name="FINALIZAR CADASTRO"
-          className={ `w-fit h-fit p-3 bg-red-500 rounded-lg
+          className={`w-fit h-fit p-3 bg-red-500 rounded-lg
            text-white font-sans font-semibold text-lg ml-10 
-           max-sm:ml-0 mb-10 self-center` }
+           max-sm:ml-0 mb-10 self-center`}
         />
       </form>
       <Footer />

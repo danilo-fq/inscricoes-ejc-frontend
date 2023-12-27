@@ -15,9 +15,7 @@ export default function Login() {
     mode: 'onBlur',
   });
 
-  const {
-    handleSubmit,
-  } = methods;
+  const { handleSubmit } = methods;
 
   const loginEncontreiro = (data: object) => {
     console.log(data);
@@ -26,23 +24,19 @@ export default function Login() {
   };
 
   return (
-    <FormProvider { ...methods }>
+    <FormProvider {...methods}>
       <Header />
-      <main
-        className="h-screen bg-zinc-50 flex flex-col items-center justify-center gap-12"
-      >
+      <main className="h-screen bg-zinc-50 flex flex-col items-center justify-center gap-12">
         <p className="text-lg font-medium text-green-600">
           Cadastro Efetuado com sucesso!
         </p>
         <div className="flex flex-col justify-center items-center">
           <img
             className="w-[80px] h-[80px] mx-auto mb-9"
-            src="/logo-ejc-sjt.png"
+            src="./logo-ejc-sjt.png"
             alt=""
           />
-          <p>
-            Não tem uma conta ainda?
-          </p>
+          <p>Não tem uma conta ainda?</p>
           <Link
             className="text-red-500 hover:underline hover:text-red-600"
             to="/criar-conta"
@@ -51,7 +45,7 @@ export default function Login() {
           </Link>
         </div>
         <form
-          onSubmit={ handleSubmit(loginEncontreiro) }
+          onSubmit={handleSubmit(loginEncontreiro)}
           className="flex flex-col gap-6 items-start"
           method="post"
         >
@@ -84,8 +78,8 @@ export default function Login() {
           <Button
             type="submit"
             name="Entrar"
-            className={ `w-36 h-12 bg-red-500 rounded-lg
-           text-white font-sans font-semibold text-lg` }
+            className={`w-36 h-12 bg-red-500 rounded-lg
+           text-white font-sans font-semibold text-lg`}
           />
         </form>
       </main>

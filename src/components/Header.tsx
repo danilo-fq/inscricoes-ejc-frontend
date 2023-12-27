@@ -11,7 +11,7 @@ export default function Header() {
       <img
         className="w-16 h-16 absolute
              left-16 top-4 max-sm:right-7"
-        src="/logo-ejc-sjt.png"
+        src="./logo-ejc-sjt.png"
         alt=""
       />
 
