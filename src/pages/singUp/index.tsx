@@ -92,7 +92,7 @@ export default function SignUp() {
         mt-36 max-sm:mt-24 max-sm:mx-3 max-sm:text-center"
       >
         <img
-          src="/logo-ejc-sjt.png"
+          src="./logo-ejc-sjt.png"
           className="animate-spin w-24 h-24 mb-6"
           alt=""
         />
@@ -442,7 +442,7 @@ export default function SignUp() {
                 'Externa',
                 'Lanchinho',
                 'Liturgia',
-                'Som & Iluminação',
+                'Som e Iluminação',
                 'Trânsito',
               ]}
             />
@@ -504,7 +504,9 @@ export default function SignUp() {
               Em qual equipe?"
               selectName="lastEjcTeam"
               placeHolder="Selecione uma opção"
-              optionsSelect={ejcEquipesMock}
+              optionsSelect={ejcEquipesMock.filter(
+                (item) => item.value !== 'Outra'
+              )}
               width="708"
             />
             <GenericInput
@@ -514,7 +516,7 @@ export default function SignUp() {
             />
             <GenericInput
               labelDescription="Possui restrição alimentar? Informe qual(ais)."
-              placeHolder="Ex: Lactose, Frutos do mar, Glúten..."
+              placeHolder="Ex: Lactose, Glúten, Frutos do mar..."
               inputName="foodRestriction"
             />
             <GenericInput

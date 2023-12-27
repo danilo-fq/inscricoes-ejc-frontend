@@ -12,7 +12,7 @@ const createEncontreiroFormSchema = z
   .object({
     fullName: z
       .string()
-      .min(20, { message: 'O nome Completo é obrigatório' })
+      .min(10, { message: 'O nome Completo é obrigatório' })
       .transform((name) => {
         return name
           .trim()
