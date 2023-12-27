@@ -35,9 +35,6 @@ const createEncontreiroFormSchema = z
         required_error: 'Por favor, informe uma data',
         invalid_type_error: 'Formato de data inválido',
       })
-      .min(new Date('1987-01-01'), {
-        message: 'Você já ultrapassou a idade máximo permitida',
-      })
       .max(new Date('2007-01-01'), {
         message: 'Você ainda não tem a idade mínima permitida',
       })
@@ -60,7 +57,13 @@ const createEncontreiroFormSchema = z
       .object(selectObject, {
         required_error: 'Você deve informar a sua paróquia de origem',
       })
-      .transform((church) => `${church.value} - ${church.cidade}`),
+      .transform((church) => {
+        if (church.cidade) {
+          return `${church.value} - ${church.cidade}`;
+        }
+
+        return church.value;
+      }),
     password: z
       .string()
       .min(1, { message: 'Por favor, cadastre uma senha' })
@@ -99,8 +102,9 @@ const createEncontreiroFormSchema = z
       })
       .transform((info) => info.value),
     pastoral: z
-      .object(selectObject)
-      .optional()
+      .object(selectObject, {
+        required_error: 'Informe qual sua situação matrimonial',
+      })
       .transform((info) => {
         if (info) {
           return info.value;
@@ -115,12 +119,20 @@ const createEncontreiroFormSchema = z
       .number()
       .min(1, { message: 'Informe o ano do seu primeiro encontro' })
       .min(1930, { message: 'Por favor insira um ano válido' })
-      .max(2029, { message: 'Por favor insira um ano válido' }),
+      .max(new Date().getFullYear(), {
+        message: 'Por favor insira um ano válido',
+      }),
     ejcChurch: z
       .object(selectObject, {
         required_error: 'Informe a sua paróquia do seu primeiro EJC',
       })
-      .transform((church) => `${church.value} - ${church.cidade}`),
+      .transform((church) => {
+        if (church.cidade) {
+          return `${church.value} - ${church.cidade}`;
+        }
+
+        return church.value;
+      }),
     musicalInstrument: z
       .array(z.object(selectObject), {
         required_error: SELECT_ONE_OPTION,
