@@ -4,6 +4,7 @@ import { useForm, FormProvider, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Button from '../../components/Button';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -46,14 +47,18 @@ export default function SignUp() {
   });
 
   const createEncontreiro = async (data: CreateEncontreiroData) => {
-    console.log('submit com sucesso', data);
-    setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    await api.post('/inscricao-encontreiro', data);
+      await api.post('/inscricao-encontreiro', data);
 
-    setIsLoading(false);
+      setIsLoading(false);
 
-    navigate('/confirmacao-encontreiro');
+      navigate('/confirmacao-encontreiro');
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+      setIsLoading(false);
+    }
   };
 
   const dynamicSelectChange = (
